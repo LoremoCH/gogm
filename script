@@ -39,11 +39,12 @@ echo 'Add params to mkgmap. --description="OpenStreetMap of Berlin (GER)" --lati
 read $mkgmap_params
 
 ###################################
+mkdir -p $dir/$$/
+cd $dir/$$/
+wget $url
 
-wget http://download.geofabrik.de/europe/germany/berlin-latest.osm.bz2
+java -Xmx$java_mx -jar $splitter_jar $splitter_params *
 
-java -Xmx450m -jar /opt/splitter-r321/splitter.jar --mapid=63245000 berlin-latest.osm.bz2
-
-java -Xmx450m -jar /opt/mkgmap-r3241/mkgmap.jar --description="OpenStreetMap of Berlin (GER)" --latin1 --net --gmapsupp --route --remove-shreas --index *.osm.pbf
+java -Xmx$java_mx -jar $mkgmap_jar $mkgmap_params *.osm.pbf
 
 exit 0;
