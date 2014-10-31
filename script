@@ -5,6 +5,11 @@
 # Written by Jonas Meier me@jomei.ch.
 
 ###################################
+# Set paths...
+splitter_jar='/opt/splitter-r321/splitter.jar';
+mkgmap_jar='/opt/mkgmap-r3241/mkgmap.jar';
+
+###################################
 # Check TMUX
 if [[ -z $TMUX ]]
   then
