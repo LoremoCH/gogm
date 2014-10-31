@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################
+# Simple and dumb script to generate an OpenStreetMap based Grarmin Map.
+# Written by Jonas Meier me@jomei.ch.
+
+###################################
+
+###################################
+
 wget http://download.geofabrik.de/europe/germany/berlin-latest.osm.bz2
 
 java -Xmx450m -jar /opt/splitter-r321/splitter.jar --mapid=63245000 berlin-latest.osm.bz2
