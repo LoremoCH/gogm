@@ -1,10 +1,29 @@
 #!/bin/bash
 
 ###################################
-# Simple and dumb script to generate an OpenStreetMap based Grarmin Map.
+# Simple and dumb script to generate an OpenStreetMap based Grarmin Maps.
 # Written by Jonas Meier me@jomei.ch.
 
 ###################################
+# Check TMUX
+if [[ -z $TMUX ]]
+  then
+    echo 'Seems that you are in a tmux, good.';
+  else
+    echo 'Are you in a tmux? Or do you really not want to use it? y/n';
+    read $ans_tmux;
+    if [ "$ans_tmux" == "y" ]:
+      then
+        echo 'OK...';
+    else
+      exit 2;
+fi
+
+###################################
+# Read Params
+
+
+
 
 ###################################
 
@@ -13,3 +32,5 @@ wget http://download.geofabrik.de/europe/germany/berlin-latest.osm.bz2
 java -Xmx450m -jar /opt/splitter-r321/splitter.jar --mapid=63245000 berlin-latest.osm.bz2
 
 java -Xmx450m -jar /opt/mkgmap-r3241/mkgmap.jar --description="OpenStreetMap of Berlin (GER)" --latin1 --net --gmapsupp --route --remove-shreas --index *.osm.pbf
+
+exit 0;
