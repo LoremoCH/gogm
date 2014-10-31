@@ -26,9 +26,17 @@ fi
 
 ###################################
 # Read Params
-
-
-
+echo 'Please give me now a few parametes.';
+echo 'Enter a directory whre the script schould work (pwd), /tmp/ for example.';
+read $dir;
+echo 'Enter an http/ftp url to get the osm Data.';
+read $url;
+echo 'Enter the maximal amount of memory which java schould get.';
+read $java_mx;
+echo 'Add params to splitter. --mapid=63245000';
+read $splitter_params
+echo 'Add params to mkgmap. --description="OpenStreetMap of Berlin (GER)" --latin1 --net --gmapsupp --route --remove-shreas --index';
+read $mkgmap_params
 
 ###################################
 
